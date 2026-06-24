@@ -135,6 +135,7 @@ const LoginPage = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            Domain: STATIC_SUBDOMAIN,
           },
         }
       );
@@ -208,6 +209,7 @@ const LoginPage = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            Domain: STATIC_SUBDOMAIN,
           },
         }
       );
@@ -253,6 +255,7 @@ const LoginPage = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            Domain: STATIC_SUBDOMAIN,
           },
         }
       );
