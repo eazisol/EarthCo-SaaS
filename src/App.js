@@ -100,7 +100,7 @@ import Cookies from "js-cookie";
 import { RecurringTable } from "./components/RecurringBilling/recurringTable";
 import RecurringInvoices from "./components/recurringInvoices";
 import { CreateRecurringTransaction } from "./components/CreateRecurringTransaction";
-import { setPrimaryColor } from "./custom/theme";
+import { applyCompanyBranding } from "./custom/companyBranding";
 import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "./API/companydetail";
 import { RoleAndPermision } from "./components/roleandpermision";
 import { VenderList } from "./components/venders/VenderList";
@@ -132,13 +132,7 @@ function App() {
       const getCompanyDetail = async () => {
         const subdomain = getCompanySubdomain();
         const response = await companyDetail(STATIC_SUBDOMAIN);
-        Cookies.set('CompanyLogoPath', response?.data?.CompanyLogoPath || '', { expires: 30 });
-        Cookies.set('PrimeryColor', response?.data?.PrimeryColor || '', { expires: 30 });
-        Cookies.set('SecondaryColor', response?.data?.SecondaryColor || '', { expires: 30 });
-        if(response?.data?.PrimeryColor){
-          setPrimaryColor(response?.data?.PrimeryColor,response?.data?.SecondaryColor)
-        }
-        
+        applyCompanyBranding(response?.data);
       }
       getCompanyDetail();
     

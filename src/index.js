@@ -6,21 +6,12 @@ import reportWebVitals from "./reportWebVitals";
 import RoutesContext from "./context/RoutesContext";
 import DataFun from "./context/AppData";
 import StyleData from "./context/StyleData";
-import { createTheme } from "@mui/material/styles";
 import ThemeColorProvider from "./context/ThemeContext";
+import { applyCachedCompanyBranding } from "./custom/companyBranding";
+
+applyCachedCompanyBranding();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#7c9c3d",
-    },
-    customColor: {
-      main: "#2C2C2C", // Replace with your custom color code
-    },
-  },
-});
 
 root.render(
   <RoutesContext>

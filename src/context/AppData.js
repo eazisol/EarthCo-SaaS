@@ -2,8 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { createContext, useEffect, useState } from "react";
 import { baseUrl } from "../apiConfig";
-import { setPrimaryColor } from "../custom/theme";
 import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "../API/companydetail";
+import { applyCompanyBranding } from "../custom/companyBranding";
 
 const DataContext = createContext();
 
@@ -284,27 +284,23 @@ const DataFun = ({ children }) => {
   const [scrollBottom, setScrollBottom] = useState(false);
   const [companyInfo, setCompanyInfo] = useState({});
   const [dynamicColorAndLogo, setDynamicColorAndLogo] = useState({
-    CompanyLogoPath: "",
-    PrimeryColor: "",
-    SecondaryColor: "",
+    CompanyLogoPath: Cookies.get("CompanyLogoPath") || "",
+    PrimeryColor: Cookies.get("PrimeryColor") || "",
+    SecondaryColor: Cookies.get("SecondaryColor") || "",
   });
   useEffect(() => {
     const getCompanyDetail = async () => {
       const subdomain = getCompanySubdomain();
       const response = await companyDetail(STATIC_SUBDOMAIN);
-      Cookies.set('CompanyLogoPath', response?.data?.CompanyLogoPath || '', { expires: 30 });
-      Cookies.set('PrimeryColor', response?.data?.PrimeryColor || '', { expires: 30 });
-      Cookies.set('SecondaryColor', response?.data?.SecondaryColor || '', { expires: 30 });
+      applyCompanyBranding(response?.data);
       const data = {
         CompanyLogoPath: response?.data?.CompanyLogoPath,
         PrimeryColor: response?.data?.PrimeryColor,
         SecondaryColor: response?.data?.SecondaryColor,
+      };
+      if (response?.data?.PrimeryColor) {
+        setDynamicColorAndLogo(data);
       }
-      if(response?.data?.PrimeryColor){
-        setPrimaryColor(response?.data?.PrimeryColor,response?.data?.SecondaryColor)
-        setDynamicColorAndLogo(data)
-      }
-      
     }
 
     const fetchUser = async () => {

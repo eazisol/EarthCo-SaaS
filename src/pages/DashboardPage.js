@@ -120,19 +120,19 @@ const DashboardPage = () => {
 
   useEffect(() => {
     const segments = location.pathname.split("/");
-    const lastSegment = segments[1]; // Extracting the last segment value from the URL
+    const lastSegment = segments[1];
+    const companyTitle = Cookies.get("CompanyTitle") || "EarthCo";
 
-    // Capitalize the last segment for better readability
     const capitalizedSegment =
       lastSegment.charAt(0).toUpperCase() + lastSegment.slice(1);
 
-    document.title = `${capitalizedSegment}`;
+    document.title = `${capitalizedSegment} - ${companyTitle}`;
 
     const handleVisibilityChange = () => {
       if (document.visibilityState === "hidden") {
-        document.title = "EarthCo";
+        document.title = companyTitle;
       } else {
-        document.title = `${capitalizedSegment} - EarthCo`;
+        document.title = `${capitalizedSegment} - ${companyTitle}`;
       }
     };
 

@@ -18,11 +18,16 @@ import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import { CircularProgress, IconButton, TextField } from "@mui/material";
 import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "../API/companydetail";
-import { setPrimaryColor } from "../custom/theme";
+import {
+  applyCachedCompanyBranding,
+  applyCompanyBranding,
+  getCachedCompanyLogoPath,
+  getCompanyLogoUrl,
+} from "../custom/companyBranding";
 import Footer from "../components/Footer";
 const LoginPage = () => {
   const token = Cookies.get("token");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(() => !getCachedCompanyLogoPath());
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -57,44 +62,30 @@ const LoginPage = () => {
   const [snackBarText, setSnackBarText] = useState("");
 
   const navigate = useNavigate();
-  const [companyLogoPath, setCompanyLogoPath] = useState('');
+  const [companyLogoPath, setCompanyLogoPath] = useState(getCachedCompanyLogoPath);
   const [conmpanyDetail, setConmpanyDetail] = useState({});
   const urlParams = new URLSearchParams(window.location.hash);
   const providerToken = urlParams.get("provider_token");
   useEffect(() => {
-    // Reload page on first visit to login page
-    const hasReloaded = sessionStorage.getItem('loginPageReloaded');
-    if (!hasReloaded) {
-      sessionStorage.setItem('loginPageReloaded', 'true');
-      window.location.reload();
-      return;
-    }
+    applyCachedCompanyBranding();
 
     const getCompanyDetail = async () => {
-      setLoading(true);
+      const hasCache = !!getCachedCompanyLogoPath();
+      if (!hasCache) {
+        setLoading(true);
+      }
       const subdomain = getCompanySubdomain();
       const response = await companyDetail(STATIC_SUBDOMAIN);
-      Cookies.set('CompanyLogoPath', response?.data?.CompanyLogoPath || '', { expires: 30 });
-      Cookies.set('PrimeryColor', response?.data?.PrimeryColor || '', { expires: 30 });
-      Cookies.set('SecondaryColor', response?.data?.SecondaryColor || '', { expires: 30 });
-      setCompanyLogoPath(response?.data?.CompanyLogoPath || '');
-      if (response?.data?.PrimeryColor) {
-        setPrimaryColor(response?.data?.PrimeryColor,response?.data?.SecondaryColor )
-      }
-      let companyTermAndPrivacy = {
+      applyCompanyBranding(response?.data);
+      setCompanyLogoPath(response?.data?.CompanyLogoPath || "");
+      setConmpanyDetail({
         PrivacyPolicy: response?.data?.PrivacyPolicy,
-        TermsAndCondition: response?.data?.TermsAndCondition
-
-      }
-      setConmpanyDetail(companyTermAndPrivacy)
-     
+        TermsAndCondition: response?.data?.TermsAndCondition,
+        PrimeryColor: response?.data?.PrimeryColor,
+      });
       setLoading(false);
-    }
+    };
     getCompanyDetail();
-
-
-
-
   }, []);
   useEffect(() => {
 
@@ -326,7 +317,7 @@ const LoginPage = () => {
                 <div className="card-body">
                 <div className="logo-header">
                   <img
-                    src={companyLogoPath ? `https://admin.earthcoapp.com${companyLogoPath}` : logo1}
+                    src={getCompanyLogoUrl(companyLogoPath) || logo1}
                     alt=""
                     className="width-230 light-logo"
                     style={{ width: "35%", marginLeft: "30%" }}
