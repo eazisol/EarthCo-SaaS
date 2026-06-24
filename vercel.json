@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "GENERATE_SOURCEMAP": "false",
+      "DISABLE_ESLINT_PLUGIN": "true",
+      "NODE_OPTIONS": "--max-old-space-size=6144"
+    }
+  }
+}
