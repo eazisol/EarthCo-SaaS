@@ -1,0 +1,55 @@
+.add-item {
+    margin: 20px;
+}
+
+.itemtitleBar {
+    background-color: #dedada;
+ 
+    padding: 10px 20px;
+}
+.jobFormBar {
+    background-color: #dedada;
+ 
+    padding: 5px 20px;
+}
+.MuiTypography-root.MuiTypography-body1.MuiFormControlLabel-label {
+    margin-left: -6px !important;
+  }
+  
+.itemtitleBar h4 {
+    margin: 0;
+}
+.jobFormLable{
+    font-size: 12px;
+}
+.estNotesBox h4 {
+    margin-bottom: 5px;
+}
+
+.estNotesBox .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dataBox {
+    padding: 1rem 3rem;
+}
+
+.dataRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dataRow h5 {
+    text-align: right;
+}
+
+.tabSwitch button {
+    margin-right: 1px;
+}
+
+.activeBtn {
+    background: #fff;
+    color: black !important;
+}

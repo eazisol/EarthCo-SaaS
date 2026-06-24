@@ -1,0 +1,403 @@
+.expand-bottom {
+  position: relative;
+}
+#bottomChev {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+
+#irrbottomChev {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+#plbottomChev {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+#foremanQcbottomChev {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+#foremanOperationsbottomChev {
+  position: absolute;
+  right: 20px;
+  font-size: 20px;
+  font-weight: 300;
+  transform: rotate(-90deg);
+  transition: 0.3s;
+}
+
+.rotatezero {
+  transform: rotate(0deg) !important;
+}
+
+.signBtns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.authError {
+  color: red;
+  margin: 0 5px;
+}
+
+.badgeBox {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.actionBadge {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+.actionBtns button {
+  white-space: nowrap;
+  min-width: 70px;
+  margin: 5px;
+}
+
+.actionBtns {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.flex-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.header-content {
+  position: fixed !important;
+  right: 0;
+  left: 0;
+  height: 45px !important;
+}
+
+.nav-control {
+  height: 3.263rem !important;
+}
+
+.header {
+  position: relative !important;
+}
+
+.dispContents {
+  display: contents;
+}
+
+#menu li a {
+  padding: .75rem 1.5rem;
+}
+
+.subMenu li a {
+  padding: .5rem 1.5rem !important;
+}
+
+.deznav,
+.nav-header {
+  position: fixed !important;
+}
+
+@media(min-width: 1024px) {
+
+  .deznav,
+  .nav-header {
+    position: fixed !important;
+  }
+}
+
+/* 
+.deznav .metismenu ul a:before {
+  content: "";
+  height: 0.125rem;
+  width: 0.375rem;
+  background: blue;
+  position: absolute;
+  left: 1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+}
+
+
+.deznav .metismenu ul a:before {
+  content: "";
+  height: 0.125rem;
+  width: 0.375rem;
+  background: blue;
+  position: absolute;
+  left: 1.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+} */
+
+/* blue box */
+.blueBarBox {
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 5px;
+}
+
+#blueBar {
+  background-color: #14537e;
+  height: 2px;
+  width: 25%;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.activeSub {
+  width: 70% !important;
+}
+
+#customerTbl_paginate a,
+#serviceReqTbl_paginate a,
+#empoloyeesTbl_paginate a,
+#estimateTbl2_paginate a,
+#srReqTbl_paginate a,
+#irrigationTbl_paginate a,
+#punchListTbl_paginate a,
+#landscapeTbl_paginate a,
+#weeklyTbl_paginate a {
+  display: inline-table !important;
+  cursor: pointer;
+}
+
+/* map css */
+.locationIcon {
+  font-weight: 100 !important;
+  margin-right: 6px;
+}
+
+.search-adress {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.search-adress input {
+  border-radius: 5px 0 0 5px;
+  height: 100%;
+}
+
+.search-adress button {
+  border-radius: 0 5px 5px 0;
+  height: 100%;
+}
+
+.twoButtons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.twoButtons .row {
+  width: 100%;
+}
+
+.map {
+  width: 100%;
+  height: 80vh;
+}
+
+.serviceLocations {
+  padding: 1rem;
+}
+
+.serviceLocations .col-md-12 {
+  padding: 0;
+  height: min-content;
+  border: 1px solid grey;
+  margin: 0.5rem 0;
+}
+
+.locationInfo {
+  display: flex;
+}
+
+.locationInfo .col-md-3 {
+  background-color: #5b7929;
+  color: white
+}
+
+.locationInfo .col-md-9 {
+  padding: 1rem;
+}
+
+.locationInfo .col-md-3 p {
+  margin: 0;
+}
+
+.react-calendar {
+  width: 100% !important;
+}
+
+/* toggle Sidebar */
+.deznav>* {
+  overflow-x: hidden;
+}
+
+.dispNone {
+  display: none;
+  transition: 0s;
+}
+
+#menu li.linkSide {
+  min-height: 40px;
+  max-height: 40px;
+}
+
+.logoWidth {
+  width: 15rem !important;
+}
+
+.bodyChanges {
+  margin-left: 5rem !important;
+}
+
+
+.toShort {
+  width: 5rem !important;
+}
+
+.header-left {
+  margin-left: 15rem;
+}
+
+.header-left {
+  transition: 0.2s all;
+}
+
+
+/* show hover menu */
+.activeHover {
+  position: fixed;
+  left: 5rem;
+  top: 26.875rem;
+  width: 14.875rem;
+  z-index: 1001;
+  padding: 0.5rem 0 !important;
+  box-shadow: 0rem 0rem 2.5rem 0rem rgba(82, 63, 105, 0.1);
+  height: auto !important;
+  border-radius: 0.375rem;
+  background: #fff;
+}
+
+
+/* mobile sideBar */
+@media only screen and (max-width: 450px) {
+  .deznav {
+    width: 17rem !important;
+  }
+
+  .header-left {
+    margin-left: 0rem;
+  }
+
+  #sideBarDez {
+    transform: translateX(-17rem);
+  }
+
+  #menu li {
+    margin: 2px 0;
+    font-weight: 400;
+  }
+
+  .metismenu>li {
+    padding: 0rem 0.9375rem;
+  }
+
+  .metismenu>li .active {
+    border-radius: 0.375rem;
+  }
+
+  .mm-active {
+    font-size: 0.875rem;
+    padding: 0.75rem 0.875rem;
+    color: #888888;
+  }
+
+  .content-body {
+    padding-right: 0rem;
+    margin-left: 0 !important;
+  }
+}
+
+
+.transRight {
+  transform: translateX(0px) !important;
+}
+
+
+.visNo {
+  display: none;
+}
+
+.staffAdress {
+  top: -415px;
+}
+
+#customerShow input,
+#customerShow .form-txtarea {
+  background-color: #f0f4fc;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.longModal {
+  max-height: 80vh;
+  overflow: auto;
+}
+.paid-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  
+  padding: 10px 20px;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.paid-text {
+  font-size: 74px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 
+    -1px 0 green, 1px 0 green, 
+    0 -1px green, 0 1px green, 
+    -1px -1px green, 1px 1px green, 
+    -1px 1px green, 1px -1px green;
+}
+
+

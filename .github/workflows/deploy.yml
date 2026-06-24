@@ -1,0 +1,37 @@
+name: Deploy React App to IIS on VPS
+
+on:
+  push:
+    branches:
+      - main   # or 'master' depending on your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Setup Node
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      # Step 3: Install dependencies & build
+      - name: Install and Build React App
+        run: |
+          npm install
+          npm run build
+
+      # Step 4: Deploy to VPS via SFTP
+      - name: Deploy to IIS folder on VPS
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          source: "build/*"
+          target: "C:/inetpub/wwwroot/react-app"
