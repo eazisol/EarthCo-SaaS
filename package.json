@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.x"
+    "node": "20.x"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.17.0",
@@ -76,9 +76,9 @@
     "yup": "^1.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "cross-env CI=false NODE_OPTIONS=--max-old-space-size=6144 react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "cross-env CI=false GENERATE_SOURCEMAP=false DISABLE_ESLINT_PLUGIN=true NODE_OPTIONS=--max-old-space-size=6144 craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -101,6 +101,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@craco/craco": "^7.1.0",
     "cross-env": "^10.1.0",
     "eslint": "^8.57.1"
   }
