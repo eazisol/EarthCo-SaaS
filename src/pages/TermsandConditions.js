@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo1 from "../assets/images/background/earthco_logo.png";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { companyDetail, getCompanySubdomain } from "../API/companydetail";
+import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "../API/companydetail";
 import { setPrimaryColor } from "../custom/theme";
 import { CircularProgress } from "@mui/material";
 const TermsandConditions = () => {
@@ -13,7 +13,7 @@ const TermsandConditions = () => {
 const getCompanyDetail = async () => {
       setLoading(true);
       const subdomain = getCompanySubdomain();
-      const response = await companyDetail(subdomain);
+      const response = await companyDetail(STATIC_SUBDOMAIN);
       if (response?.data?.PrimeryColor) {
           setPrimaryColor(response?.data?.PrimeryColor,response?.data?.SecondaryColor)
       }

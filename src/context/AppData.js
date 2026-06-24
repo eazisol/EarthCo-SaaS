@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 import { createContext, useEffect, useState } from "react";
 import { baseUrl } from "../apiConfig";
 import { setPrimaryColor } from "../custom/theme";
-import { companyDetail, getCompanySubdomain } from "../API/companydetail";
+import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "../API/companydetail";
 
 const DataContext = createContext();
 
@@ -291,7 +291,7 @@ const DataFun = ({ children }) => {
   useEffect(() => {
     const getCompanyDetail = async () => {
       const subdomain = getCompanySubdomain();
-      const response = await companyDetail(subdomain);
+      const response = await companyDetail(STATIC_SUBDOMAIN);
       Cookies.set('CompanyLogoPath', response?.data?.CompanyLogoPath || '', { expires: 30 });
       Cookies.set('PrimeryColor', response?.data?.PrimeryColor || '', { expires: 30 });
       Cookies.set('SecondaryColor', response?.data?.SecondaryColor || '', { expires: 30 });

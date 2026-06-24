@@ -1,5 +1,7 @@
 import axios from "axios";
 
+export const STATIC_SUBDOMAIN = "eazisolscompany";
+
 export const getCompanySubdomain = () => {
   if (typeof window === "undefined") {
     return "eazisolscompany";

@@ -17,7 +17,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import InputLabel from '@mui/material/InputLabel';
 import InputAdornment from '@mui/material/InputAdornment';
 import { CircularProgress, IconButton, TextField } from "@mui/material";
-import { companyDetail, getCompanySubdomain } from "../API/companydetail";
+import { companyDetail, getCompanySubdomain, STATIC_SUBDOMAIN } from "../API/companydetail";
 import { setPrimaryColor } from "../custom/theme";
 import Footer from "../components/Footer";
 const LoginPage = () => {
@@ -73,7 +73,7 @@ const LoginPage = () => {
     const getCompanyDetail = async () => {
       setLoading(true);
       const subdomain = getCompanySubdomain();
-      const response = await companyDetail(subdomain);
+      const response = await companyDetail(STATIC_SUBDOMAIN);
       Cookies.set('CompanyLogoPath', response?.data?.CompanyLogoPath || '', { expires: 30 });
       Cookies.set('PrimeryColor', response?.data?.PrimeryColor || '', { expires: 30 });
       Cookies.set('SecondaryColor', response?.data?.SecondaryColor || '', { expires: 30 });

@@ -25,7 +25,7 @@ import { baseUrl ,logoUrl} from "../../apiConfig";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import Notifications from "./Notifications";
 import Authorization from "../Reusable/Authorization";
-import { getCompanySubdomain } from "../../API/companydetail";
+import { getCompanySubdomain, STATIC_SUBDOMAIN } from "../../API/companydetail";
 
 function stringToColor(string) {
   let hash = 0;
@@ -414,7 +414,7 @@ const HeaderExp = () => {
                         </div>
                       ) : (
                         <iframe
-                          src={`${baseUrl}/?Value=${subdomain}&Color=${encodeURIComponent(dynamicColorAndLogo?.PrimeryColor || "#7c9c3d")}`}
+                          src={`${baseUrl}/?Value=${STATIC_SUBDOMAIN}&Color=${encodeURIComponent(dynamicColorAndLogo?.PrimeryColor || "#7c9c3d")}`}
                           scrolling="no"
                           style={{
                             height: "100%",
